@@ -29,7 +29,7 @@ class App(object):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-            # glRotatef(1, 3, 1, 1)
+            glRotatef(1, 3, 1, 1)
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
             self.grid_map.draw_grid()
             pygame.display.flip()
