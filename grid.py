@@ -3,11 +3,15 @@ from OpenGL.GL import *
 
 class MapGrid:
     """
-    
+    MapGrid class is where the grid is built, the vertices are not hard coded
+    they are generated along with edges in the init method
+    methods:
+        __init__: builds vertices and edges
+        draw_grid: draws vertices and edges
     """
     def __init__(self):
         """
-        
+        math, learn it
         """
         x = -5
         y = -5
@@ -43,30 +47,29 @@ class MapGrid:
 
                 if edge_x < 109:
                     edges = edges + edge2
-
                 if edge_x < 1209:
                     edges = edges + edge3
 
                 edge_x += 1
 
-
         self.vertices = vertices
         self.edges = edges
-        # self.surface = (0, 10, 110, 120)
-        # self.color = (0, 1, 0)
+        self.surface = (0, 0,)
+        self.color = (0, 0, 1)
 
     def draw_grid(self):
         """
-        
-        :return: 
+        Draws and colors the grid
+        :return: when draw_grid is called a visual of the grid should be 
+        returned in the window
         """
-        # glBegin(GL_QUADS)
-        #
-        # for vertex in self.surface:
-        #     glColor3fv(self.color)
-        #     glVertex3fv(self.vertices[vertex])
-        #
-        # glEnd()
+        glBegin(GL_QUADS)
+
+        for vertex in self.surface:
+            glColor3fv(self.color)
+            glVertex3fv(self.vertices[vertex])
+
+        glEnd()
 
         glBegin(GL_LINES)
         for line in self.edges:

@@ -7,22 +7,32 @@ from grid import MapGrid
 
 class App(object):
     """
-    
+    class app 
+    methods:
+        __init__: initializes application, instantiates the grid and calls the
+         looper method
+        looper: looper contains the while loop that is this application
     """
     def __init__(self, screen_width, screen_height):
+        """
+        creates the scene, sets perspective, creates/instantiates grid, calls 
+        looper
+        :param screen_width: width of display
+        :param screen_height: height of display
+        """
         self.display = (screen_width, screen_height)
         self.screen = pygame.display.set_mode(self.display, DOUBLEBUF | OPENGL)
         self.percpective = gluPerspective(45,
                                           (self.display[0]/self.display[1]),
                                           0.1, 50.0)
-        self.step_back = glTranslatef(0.0, 0.0, -20)
+        self.step_back = glTranslatef(0.0, 0.0, -10)
         self.grid_map = MapGrid()
         self.looper()
 
     def looper(self):
         """
-        
-        :return: 
+        the while loop that is the application, listens for quit event, rotates 
+        and redraws the cube
         """
         while True:
             for event in pygame.event.get():
@@ -37,6 +47,6 @@ class App(object):
 
 
 if __name__ == "__main__":
-    width, height = 800, 600
+    width, height = 1280, 720
     pygame.init()
     window = App(width, height)
