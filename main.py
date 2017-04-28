@@ -25,7 +25,7 @@ class App(object):
         self.percpective = gluPerspective(45,
                                           (self.display[0]/self.display[1]),
                                           0.1, 50.0)
-        self.step_back = glTranslatef(0.0, 0.0, -10)
+        self.step_back = glTranslatef(0.0, 0.0, -15)
         self.grid_map = MapGrid()
         self.looper()
 

@@ -19,6 +19,7 @@ class MapGrid:
         edge_x = 0
         vertices = ()
         edges = ()
+        counter = 0
 
         while z <= 5:
 
@@ -45,12 +46,15 @@ class MapGrid:
 
                 edges = edges + edge1
 
-                if edge_x < 109:
+                if counter < 109:
                     edges = edges + edge2
+                if counter == 121:
+                    counter = 0
                 if edge_x < 1209:
                     edges = edges + edge3
 
                 edge_x += 1
+                counter += 1
 
         self.vertices = vertices
         self.edges = edges
